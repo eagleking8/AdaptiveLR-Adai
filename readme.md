@@ -9,17 +9,17 @@ Adai算法基于论文Adaptive Inertia:Disentangling the Effects of Adaptive Lea
 
 ## 超参数
 Adam
-|学习率|一阶矩估计衰减率$\beta_1$|二阶矩估计衰减率$\beta_2$|数值稳定性参数 $\epsilon$|weight decay|
+|学习率|一阶矩估计衰减率 $\beta_1$ |二阶矩估计衰减率 $\beta_2$ |数值稳定性参数 $\epsilon$ |weight decay|
 |---|---|---|---|---|
 |0.001|0.9|0.999|1e-8|0|
 
 Adai
-|学习率|自适应动量调整参数$\beta_0$|二阶矩估计衰减率$\beta_2$|$\beta_1$截断参数 $\epsilon$|
+|学习率|自适应动量调整参数 $\beta_0$ |二阶矩估计衰减率 $\beta_2$ |截断参数 $\epsilon$ |
 |---|---|---|---|
 |1.0和0.5|0.1|0.99|1e-3|
 
 AdaptiveLR-Adai
-|学习率|自适应动量调整参数$\beta_0$|二阶矩估计衰减率$\beta_2$|数值稳定性参数 $\epsilon$|
+|学习率|自适应动量调整参数 $\beta_0$ |二阶矩估计衰减率 $\beta_2$ |数值稳定性参数 $\epsilon$ |
 |---|---|---|---|
 |0.001|0.1|0.99|1e-3|
 
