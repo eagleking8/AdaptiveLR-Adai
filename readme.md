@@ -34,6 +34,7 @@ SGDM
 |---|---|---|
 |0.001|0.9|0|
 
+以下是我测试了200个epoch的结果。
 ![accuracy_200_epoch](./images_in_readme/accuracy_200_epoch.png)
 
 ![loss_200_epoch](./images_in_readme/loss_200_epoch.png)
@@ -41,3 +42,6 @@ SGDM
 ![accuracy_100-200_epoch](./images_in_readme/accuracy_100-200_epoch.png)
 
 ![loss_100-200_epoch](./images_in_readme/loss_100-200_epoch.png)
+
+以下是论文测试结果。
+![comparison_in_paper](./images_in_readme/comparison_in_paper.png)
