@@ -4,12 +4,7 @@
 
 模型采用的是ResNet-18，损失函数为交叉熵损失函数，batchsize为128，数据集为CIFAR-10。
 
-数据增强部分只使用了简单的归一化，如代码所示：
-```python
- transform = transform.Compose(
-    [transform.ToTensor(),
-     transform.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
-```
+数据增强部分，测试集按照原文代码进行了正则化、随机裁剪和随机水平翻转。
 
 Adai算法基于论文Adaptive Inertia:Disentangling the Effects of Adaptive Learning Rate and Momentum。AdaptiveLR-Adai是我自己提出的将Adam的自适应学习率加入Adai的新算法。
 
@@ -34,14 +29,16 @@ SGDM
 |---|---|---|
 |0.001|0.9|0|
 
-以下是我测试了200个epoch的结果。
-![accuracy_200_epoch](./images_in_readme/accuracy_200_epoch.png)
+以下是我测试了200个epoch的结果，并未加入学习率调度。
+![accuracy_200_epoch](./images_in_readme/accuracy_200_epoch_without_scheduler.png)
 
-![loss_200_epoch](./images_in_readme/loss_200_epoch.png)
+![loss_200_epoch](./images_in_readme/loss_200_epoch_without_scheduler.png)
 
-![accuracy_100-200_epoch](./images_in_readme/accuracy_100-200_epoch.png)
+![accuracy_100-200_epoch](./images_in_readme/accuracy_100-200_epoch_without_scheduler.png)
 
-![loss_100-200_epoch](./images_in_readme/loss_100-200_epoch.png)
+![loss_100-200_epoch](./images_in_readme/loss_100-200_epoch_without_scheduler.png)
 
 以下是论文测试结果。
-![comparison_in_paper](./images_in_readme/comparison_in_paper.png)
+![comparison_in_paper_0](./images_in_readme/comparison_in_paper_0.jpg)
+
+![comparison_in_paper_1](./images_in_readme/comparison_in_paper_1.png)

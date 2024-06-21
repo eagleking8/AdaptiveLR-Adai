@@ -1,5 +1,5 @@
 import torch
-from torch.optim.optimizer import Optimizer, required
+from torch.optim.optimizer import Optimizer
 
 class Adai(Optimizer):
     r"""Implements Adaptive Inertia Estimation (Adai) algorithm.
@@ -16,9 +16,9 @@ class Adai(Optimizer):
         decoupled (boolean, optional): decoupled weight decay (default: False)
     """
 
-    def __init__(self, params, lr=required, betas=(0.1, 0.99), eps=1e-03,
+    def __init__(self, params, lr=1.0, betas=(0.1, 0.99), eps=1e-03,
                  weight_decay=0, decoupled=False):
-        if lr is not required and lr < 0.0:
+        if lr < 0.0:
             raise ValueError("Invalid learning rate: {}".format(lr))
         if not 0.0 <= eps:
             raise ValueError("Invalid epsilon value: {}".format(eps))
@@ -82,9 +82,9 @@ class Adai(Optimizer):
                     grad.add_(p.data, alpha=group['weight_decay'])
                 elif group['weight_decay'] != 0 and group['decoupled'] == True:
                     p.data.mul_(1 - group['lr'] * group['weight_decay'])
-                    
+
                 exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
-                
+
                 exp_avg_sq_hat_sum += exp_avg_sq.sum() / bias_correction2
                 
         # Calculate the mean of all elements in exp_avg_sq_hat
@@ -113,7 +113,7 @@ class Adai(Optimizer):
                 
                 exp_avg.mul_(beta1).addcmul_(1 - beta1, grad)
                 exp_avg_hat = exp_avg / bias_correction1
-                
+
                 p.data.add_(exp_avg_hat, alpha=-group['lr'])
 
         return loss
