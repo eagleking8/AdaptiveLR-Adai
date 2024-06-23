@@ -12,7 +12,7 @@ import Adai
 import AdaptiveLR_Adai
 
 if __name__ == '__main__':
-    epoch_num = 50
+    epoch_num = 200
     accuracies = []
     losses = []
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         net = torch.nn.DataParallel(net)
         cudnn.benchmark = True
 
-    optimizer_name = "AdaptiveLR_Adai"
+    optimizer_name = "SGDM"
     optimizer = ""
 
     # 选择并实例化优化器
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     scheduler = optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda_lr)
 
     # 记录训练时间
-    start_time = time.time()
+    # start_time = time.time()
     #进行训练和测试
     for epoch in range(epoch_num):
         loss = train(net, trainloader, optimizer, criterion, device=device)
@@ -61,15 +61,15 @@ if __name__ == '__main__':
         accuracies.append(accuracy)
         scheduler.step()
         print(f"Epoch {epoch + 1}: Loss: {loss}, Accuracy:{accuracy}")
-    adam_time = time.time() - start_time
-    print(f"adai_time:{adam_time}")
+    # adam_time = time.time() - start_time
+    # print(f"adai_time:{adam_time}")
 
     # 保存准确率到文件
-    with open('Adai_unofficail_accuracy_50_epochs_lr=1.0.pkl', 'wb') as file:
+    with open('SGDM_accuracy_200_epochs_lr=0.1_with_scheduler_data_augmentation.pkl', 'wb') as file:
         pickle.dump(accuracies, file)
 
     # 保存损失到文件
-    with open('Adai_unofficial_loss_50_epochs_lr=1.0.pkl', 'wb') as file:
+    with open('SGDM_loss_200_epochs_lr=0.1_with_scheduler_data_augmentation.pkl', 'wb') as file:
         pickle.dump(losses, file)
 
-    torch.save(net, 'adai_model')
+    # torch.save(net, 'adai_model')
