@@ -38,6 +38,11 @@ SGDM
 
 ![loss_100-200_epoch](./images_in_readme/loss_100-200_epoch_without_scheduler.png)
 
+以下是加入了学习率调度和数据增强的结果。
+![accuracy_100-200_epoch_augmentation](./images_in_readme/accuracy_200_epoch_with_scheduler_and_augmentation.jpg)
+
+![loss_100-200_epoch_augmentation](./images_in_readme/loss_200_epoch_with_scheduler_and_augmentation.jpg)
+
 以下是论文测试结果。
 ![comparison_in_paper_0](./images_in_readme/comparison_in_paper_0.jpg)
 
